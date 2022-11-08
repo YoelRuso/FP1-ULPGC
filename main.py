@@ -2,12 +2,20 @@ import re
 
 
 def validate_formula(molecule):
-    element = re.split("[2-9|A-Z]", molecule)
-    cuantity = re.split("\D", molecule)
-    cuantity = cuantity[1:]
-    print(element)
-    print(cuantity)
-    print(molecule)
+    splited = re.split("", molecule)
+    splited = splited[1:-1]
+    for i in range(len(splited)-1):
+        print(splited[i])
+        if splited[i].isupper():
+            if not (splited[i + 1].isupper()):
+                if not (splited[i + 1].islower() or splited[i + 1].isdigit()):
+                    print(splited[i])
+                    return False
+        else:
+            if splited[i].isdigit():
+                if not splited[i+1].isupper():
+                    return False
+    return True
 
 
 # some tests:
