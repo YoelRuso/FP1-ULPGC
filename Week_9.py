@@ -1,3 +1,7 @@
+import re
+
+
+
 def chars_frecs(text):
     result = {}
 
@@ -85,4 +89,29 @@ def format_frecs(frecs):
     result = []
     for i in frecs[0]:
         result.append(f"{i:<10}:{((frecs[0][i]/frecs[1])*100):6.2f}%")
+    return result
+
+
+def verbs(text):
+    result = []
+    new_text = re.split(",|\s", text)
+    for word in new_text:
+        if re.search(".+(o|as|a|amos|áis|an)$", word) != None:
+            result.append(word)
+    return result
+
+
+def replace_verbs(text):
+    result = ""
+    result = re.sub("(o|as|a|amos|áis|an),", "ar,", text)
+    result = re.sub("(o|as|a|amos|áis|an)\s", "ar ", result)
+    result = re.sub("(o|as|a|amos|áis|an)$", "ar", result)
+    return result
+
+
+def normalize(text):
+    result = ""
+    result = re.sub(" +", " ", text)
+    result = re.sub("^\s", "", result)
+    result = re.sub("\s$", "", result)
     return result
