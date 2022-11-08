@@ -70,3 +70,19 @@ def longest_word(text):
             result = word
 
     return result
+
+
+def celsius2fahrenheit(celsius):
+    return f"{celsius:5.1f} grados Celsius equivalen a " \
+           f"{celsius * 9 / 5 + 32:5.1f} grados Fahrenheit"
+
+
+def format_pows(num):
+    return f"{num:>02}{num**2:>3}{num**3:$>4}"
+
+
+def format_frecs(frecs):
+    result = []
+    for i in frecs[0]:
+        result.append(f"{i:<10}:{((frecs[0][i]/frecs[1])*100):6.2f}%")
+    return result
