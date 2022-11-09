@@ -119,10 +119,15 @@ def normalize(text):
 import re
 
 
+import re
+
+
 def validate_formula(molecule):
-    test = re.match("([A-Z]{1}[a-z]{0,1}\d{0,2})+", molecule)
-    print(test)
+    test = re.match("([A-Z][a-z]{0,1}\d{0,2})+", molecule)
+    if test == None:
+        return False
     if test.group(0) == molecule:
         return True
     else:
         return False
+
