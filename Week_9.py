@@ -115,3 +115,14 @@ def normalize(text):
     result = re.sub("^\s", "", result)
     result = re.sub("\s$", "", result)
     return result
+
+import re
+
+
+def validate_formula(molecule):
+    test = re.match("([A-Z]{1}[a-z]{0,1}\d{0,2})+", molecule)
+    print(test)
+    if test.group(0) == molecule:
+        return True
+    else:
+        return False
