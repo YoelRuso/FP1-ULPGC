@@ -2,16 +2,11 @@ import re
 
 
 
-def chars_frecs(text):
-    result = {}
-
-    for i in range(len(text)):
-        if text[i] in result:
-            result[text[i]] += 1
-        else:
-            result[text[i]] = 1
-
-    return result
+def chars_frecs(string):
+    dict_vacio = dict()
+    for i in string:
+        dict_vacio[i] = string.count(i)
+    return dict_vacio
 
 
 def words_frecs(text):
